@@ -14,20 +14,20 @@ export default function HomeScreen() {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  const {
-    loading: loadingSellers,
-    error: errorSellers,
-    users: sellers,
-  } = userTopSellersList;
+  // const userTopSellersList = useSelector((state) => state.userTopSellersList);
+  // const {
+  //   loading: loadingSellers,
+  //   error: errorSellers,
+  //   users: sellers,
+  // } = userTopSellersList;
 
   useEffect(() => {
     dispatch(listProducts({}));
     dispatch(listTopSellers());
   }, [dispatch]);
   return (
-    <div>
-      <h2>Top Sellers</h2>
+    <div className='home'>
+      {/* <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
@@ -46,8 +46,8 @@ export default function HomeScreen() {
             ))}
           </Carousel>
         </>
-      )}
-      <h2>Featured Products</h2>
+      )} */}
+      {/* <h2>Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -61,7 +61,7 @@ export default function HomeScreen() {
             ))}
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 }

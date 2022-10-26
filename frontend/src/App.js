@@ -65,7 +65,7 @@ function App() {
               <i className="fa fa-bars"></i>
             </button>
             <Link className="brand" to="/">
-              e-store
+              e-fashion
             </Link>
           </div>
           <div>
@@ -144,20 +144,31 @@ function App() {
         <aside className={sidebarIsOpen ? 'open' : ''}>
           <ul className="categories">
             <li>
-              <strong>Categories</strong>
               <button
                 onClick={() => setSidebarIsOpen(false)}
                 className="close-sidebar"
                 type="button"
               >
-                <i className="fa fa-close"></i>
+                {/* <i className="fa fa-close"></i> */}
+                <i class="fa-solid fa-xmark"></i>
               </button>
+              <span>E-fashion</span>
+            </li>
+            <li className="categories__header">our lines:</li>
+            <li>
+              <Link
+                to={`/search/category/all`}
+                onClick={() => setSidebarIsOpen(false)}
+              >
+                 All
+              </Link>
             </li>
             {loadingCategories ? (
               <LoadingBox></LoadingBox>
             ) : errorCategories ? (
               <MessageBox variant="danger">{errorCategories}</MessageBox>
             ) : (
+              
               categories.map((c) => (
                 <li key={c}>
                   <Link
