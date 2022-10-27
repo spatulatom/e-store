@@ -71,20 +71,23 @@ export default function ProductEditScreen(props) {
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
-    bodyFormData.append('image', file);
+    bodyFormData.append('file', file);
     setLoadingUpload(true);
     try {
+      console.log('error');
       const { data } = await Axios.post('http://localhost:5000/api/uploads', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,
         },
       });
-      setImage(data);
+      setImage(data.secure_url);
       setLoadingUpload(false);
     } catch (error) {
+      // console.log('error')
       setErrorUpload(error.message);
       setLoadingUpload(false);
+      window.confirm(error.message)
     }
   };
 
@@ -92,7 +95,7 @@ export default function ProductEditScreen(props) {
     <div className='allcomponents'>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Edit Product {productId}</h1>
+          <h1>Create/Edit Product {productId}</h1>
         </div>
         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
@@ -113,7 +116,7 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="price">Price</label>
+              <label htmlFor="price">Price (currency = €)</label>
               <input
                 id="price"
                 type="text"

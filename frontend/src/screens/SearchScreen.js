@@ -47,12 +47,13 @@ export default function SearchScreen(props) {
     const filterPage = filter.page || pageNumber;
     const filterCategory = filter.category || category;
     const filterName = filter.name || name;
-    const filterRating = filter.rating || rating;
+    const filterRating = filter.rating? filter.rating : filter.rating === 0 ? 0 : rating;
     const sortOrder = filter.order || order;
     const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
     const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
     return `/search/category/${filterCategory}/name/${filterName}/min/${filterMin}/max/${filterMax}/rating/${filterRating}/order/${sortOrder}/pageNumber/${filterPage}`;
   };
+
   return (
     <div className='allcomponents'>
       <div className="row">
@@ -80,7 +81,8 @@ export default function SearchScreen(props) {
       </div>
       <div className="row top">
         <div className="col-1">
-          <h3>Department</h3>
+          <h2>Filters</h2>
+          <h3>Department:</h3>
           <div>
             {loadingCategories ? (
               <LoadingBox></LoadingBox>
@@ -93,7 +95,7 @@ export default function SearchScreen(props) {
                     className={'all' === category ? 'active' : ''}
                     to={getFilterUrl({ category: 'all' })}
                   >
-                    Any
+                    All
                   </Link>
                 </li>
                 {categories.map((c) => (
@@ -110,7 +112,7 @@ export default function SearchScreen(props) {
             )}
           </div>
           <div>
-            <h3>Price</h3>
+            <h3>Price:</h3>
             <ul>
               {prices.map((p) => (
                 <li key={p.name}>
@@ -127,8 +129,17 @@ export default function SearchScreen(props) {
             </ul>
           </div>
           <div>
-            <h3>Avg. Customer Review</h3>
+            <h3>Avg. Customer Review:</h3>
             <ul>
+              <li>
+              <Link
+                    to={getFilterUrl({ rating:0})}
+                    // === dosent make the class active here
+                    className={0 == rating? 'active' : ''}
+                  >
+                Any
+                  </Link>
+              </li>
               {ratings.map((r) => (
                 <li key={r.name}>
                   <Link

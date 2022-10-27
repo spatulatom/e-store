@@ -71,7 +71,7 @@ function App() {
           <div>
             <SearchBox />
           </div>
-          <div>
+          <div className='menu'>
             <Link to="/cart">
               <i class="fa-solid fa-cart-shopping">
                 {cartItems.length > 0 && (

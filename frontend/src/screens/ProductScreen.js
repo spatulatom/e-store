@@ -60,15 +60,18 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
+          <Link to="/search/category/all"><i class="fa-solid fa-angles-left"></i> back to store</Link>
           <div className="row top">
             <div className="col-2">
+              <div className='image-container--large'>
               <img
                 className="large"
                 src={product.image}
                 alt={product.name}
               ></img>
+              </div>
             </div>
+            <div className ="product-screen-second-half">
             <div className="col-1">
               <ul>
                 <li>
@@ -80,7 +83,7 @@ export default function ProductScreen(props) {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Pirce : ${product.price}</li>
+                <li>Price : €{product.price}</li>
                 <li>
                   Description:
                   <p>{product.description}</p>
@@ -105,7 +108,7 @@ export default function ProductScreen(props) {
                   <li>
                     <div className="row">
                       <div>Price</div>
-                      <div className="price">${product.price}</div>
+                      <div className="price">€{product.price}</div>
                     </div>
                   </li>
                   <li>
@@ -154,9 +157,8 @@ export default function ProductScreen(props) {
                 </ul>
               </div>
             </div>
-          </div>
-          <div>
-            <h2 id="reviews">Reviews</h2>
+            <div>
+            <h2 id="reviews">Reviews:</h2>
             {product.reviews.length === 0 && (
               <MessageBox>There is no review</MessageBox>
             )}
@@ -176,7 +178,7 @@ export default function ProductScreen(props) {
                       <h2>Write a customer review</h2>
                     </div>
                     <div>
-                      <label htmlFor="rating">Rating</label>
+                      <label htmlFor="rating">Rating:</label>
                       <select
                         id="rating"
                         value={rating}
@@ -191,7 +193,7 @@ export default function ProductScreen(props) {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="comment">Comment</label>
+                      <label htmlFor="comment">Comment:</label>
                       <textarea
                         id="comment"
                         value={comment}
@@ -221,6 +223,9 @@ export default function ProductScreen(props) {
               </li>
             </ul>
           </div>
+            </div>
+          </div>
+        
         </div>
       )}
     </div>
