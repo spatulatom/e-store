@@ -19,7 +19,7 @@ export default function PaymentMethodScreen(props) {
     navigate('/placeorder');
   };
   return (
-    <div>
+    <div className='allcomponents'>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>

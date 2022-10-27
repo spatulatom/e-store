@@ -33,7 +33,7 @@ export default function PlaceOrderScreen(props) {
     }
   }, [dispatch, order, navigate, success]);
   return (
-    <div>
+    <div className='allcomponents'>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <div className="row top">
         <div className="col-2">

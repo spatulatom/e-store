@@ -53,7 +53,7 @@ export default function ProductScreen(props) {
     }
   };
   return (
-    <div>
+    <div className='allcomponents'>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

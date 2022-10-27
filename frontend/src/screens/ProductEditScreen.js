@@ -89,7 +89,7 @@ export default function ProductEditScreen(props) {
   };
 
   return (
-    <div>
+    <div className='allcomponents'>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Edit Product {productId}</h1>

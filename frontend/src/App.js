@@ -73,10 +73,11 @@ function App() {
           </div>
           <div>
             <Link to="/cart">
-              Cart
-              {cartItems.length > 0 && (
-                <span className="badge">{cartItems.length}</span>
-              )}
+              <i class="fa-solid fa-cart-shopping">
+                {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+              </i>
             </Link>
             {userInfo ? (
               <div className="dropdown">
@@ -152,7 +153,11 @@ function App() {
                 {/* <i className="fa fa-close"></i> */}
                 <i class="fa-solid fa-xmark"></i>
               </button>
-              <span>E-fashion</span>
+              <span>
+              <Link className="aside__brand" to="/" onClick={() => setSidebarIsOpen(false)}>
+              e-fashion
+              </Link>
+              </span>
             </li>
             <li className="categories__header">our lines:</li>
             <li>
@@ -179,6 +184,68 @@ function App() {
                   </Link>
                 </li>
               ))
+            )}
+             {userInfo ? (
+              <li className='mobile__user'>
+                <Link to="#">
+                  {userInfo.name}:
+                </Link>
+                <ul>
+                  <li>
+                    <Link to="/profile" onClick={() => setSidebarIsOpen(false)}>User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory" 
+                    onClick={() => setSidebarIsOpen(false)}>Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}
+            {/* {userInfo && userInfo.isSeller && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Seller <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/productlist/seller">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist/seller">Orders</Link>
+                  </li>
+                </ul>
+              </div>
+            )} */}
+            {userInfo && userInfo.isAdmin && (
+              <li className='mobile__user'>
+                <Link to="#admin">
+                  Admin:
+                </Link>
+                <ul>
+                  <li>
+                    <Link to="/dashboard" onClick={() => setSidebarIsOpen(false)}>Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist" onClick={() => setSidebarIsOpen(false)}>Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist" onClick={() => setSidebarIsOpen(false)}>Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist" onClick={() => setSidebarIsOpen(false)}>Users</Link>
+                  </li>
+                  <li>
+                    <Link to="/support" onClick={() => setSidebarIsOpen(false)}>Support</Link>
+                  </li>
+                </ul>
+              </li>
             )}
           </ul>
         </aside>
@@ -325,7 +392,7 @@ function App() {
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved</div>{' '}
+          <div className='copyright'>e-fashion 2022</div>{' '}
         </footer>
       </div>
     </BrowserRouter>

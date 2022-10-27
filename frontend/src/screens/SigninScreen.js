@@ -28,7 +28,7 @@ export default function SigninScreen(props) {
     }
   }, [navigate, redirect, userInfo]);
   return (
-    <div>
+    <div className='allcomponents'>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Sign In</h1>

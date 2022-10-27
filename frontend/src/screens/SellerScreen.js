@@ -28,7 +28,7 @@ export default function SellerScreen(props) {
     dispatch(listProducts({ seller: sellerId }));
   }, [dispatch, sellerId]);
   return (
-    <div className="row top">
+    <div className="row top allcomponents">
       <div className="col-1">
         {loading ? (
           <LoadingBox></LoadingBox>

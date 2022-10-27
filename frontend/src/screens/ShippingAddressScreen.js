@@ -71,7 +71,7 @@ export default function ShippingAddressScreen(props) {
     navigate('/map');
   };
   return (
-    <div>
+    <div className='allcomponents'>
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>

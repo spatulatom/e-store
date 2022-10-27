@@ -34,7 +34,7 @@ export default function RegisterScreen(props) {
     }
   }, [navigate, redirect, userInfo]);
   return (
-    <div>
+    <div className='allcomponents'>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Create Account</h1>

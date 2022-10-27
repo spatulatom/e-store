@@ -31,7 +31,7 @@ export default function UserListScreen(props) {
     }
   };
   return (
-    <div>
+    <div className='allcomponents'>
       <h1>Users</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
