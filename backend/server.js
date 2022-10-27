@@ -49,7 +49,8 @@ app.get('*', (req, res) =>
 // });
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
+  console.log('ERROR', err)
+  res.status(500).send({ message: err });
 });
 
 

@@ -82,7 +82,7 @@ img.medium {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
-  margin: 1rem;
+  margin: 2rem;
 }
 .card-body {
   padding: 1rem;
@@ -95,6 +95,6 @@ img.medium {
 }
 /* Rating */
 .rating span {
-  color: #f0c040;
+  /* color: #f0c040; */
   margin: 0.1rem;
 }
