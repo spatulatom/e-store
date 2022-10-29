@@ -119,7 +119,7 @@ function App() {
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
+                  tools <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
                   <li>
@@ -242,7 +242,7 @@ function App() {
             {userInfo && userInfo.isAdmin && (
               <li className="mobile__user">
                 <Link to="#admin">
-                  <h3>Admin:</h3>:
+                  <h3>tools:</h3>:
                 </Link>
                 <ul>
                   <li>
