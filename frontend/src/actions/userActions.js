@@ -29,7 +29,7 @@ import {
 export const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post('http://localhost:5000/api/users/register', {
+    const { data } = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/register`, {
       name,
       email,
       password,
@@ -51,7 +51,7 @@ export const register = (name, email, password) => async (dispatch) => {
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post('http://localhost:5000/api/users/signin', { email, password });
+    const { data } = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/signin`, { email, password });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
@@ -78,7 +78,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.get(`http://localhost:5000/api/users/${userId}`, {
+    const { data } = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/${userId}`, {
       headers: { Authorization: `Bearer ${userInfo?.token}` },
     });
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
@@ -96,7 +96,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.put(`http://localhost:5000/api/users/profile`, user, {
+    const { data } = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/users/profile`, user, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
@@ -116,7 +116,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.put(`http://localhost:5000/api/users/${user._id}`, user, {
+    const { data } = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/users/${user._id}`, user, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
@@ -134,7 +134,7 @@ export const listUsers = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await Axios.get('http://localhost:5000/api/users', {
+    const { data } = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/users`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -154,7 +154,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.delete(`http://localhost:5000/api/users/${userId}`, {
+    const { data } = await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/users/${userId}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: USER_DELETE_SUCCESS, payload: data });
@@ -169,7 +169,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
 export const listTopSellers = () => async (dispatch) => {
   dispatch({ type: USER_TOPSELLERS_LIST_REQUEST });
   try {
-    const { data } = await Axios.get('http://localhost:5000/api/users/top-sellers');
+    const { data } = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/users/top-sellers`);
     dispatch({ type: USER_TOPSELLERS_LIST_SUCCESS, payload: data });
   } catch (error) {
     const message =

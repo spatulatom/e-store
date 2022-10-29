@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import mg from 'mailgun-js';
 import multer from 'multer';
 import crypto from 'crypto';
+import path from 'path';
 
 export const generateToken = (user) => {
   return jwt.sign(
@@ -129,6 +130,7 @@ export const payOrderEmailTemplate = (order) => {
   </p>
   `;
 };
+const __dirname = path.resolve();
 
 const MIME_TYPE_MAP = {
   'image/png': 'png',
@@ -143,11 +145,11 @@ export const fileUpload = multer({
     
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'uploads/images');
+      cb(null, path.join('uploads/images'));
     },
     filename: (req, file, cb) => {
       const ext = MIME_TYPE_MAP[file.mimetype];
-      cb(null, crypto.randomUUID() + '.' + ext);
+      cb(null, new Date().toISOString().replace(/:/g, '-') +'.'+ ext);
     }
   }),
   fileFilter: (req, file, cb) => {

@@ -75,7 +75,7 @@ export default function ProductEditScreen(props) {
     setLoadingUpload(true);
     try {
       console.log('error');
-      const { data } = await Axios.post('http://localhost:5000/api/uploads', bodyFormData, {
+      const { data } = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/uploads`, bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,

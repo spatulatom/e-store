@@ -42,7 +42,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
-
+ 
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
     loading: loadingCategories,
@@ -159,7 +159,7 @@ function App() {
               </Link>
               </span>
             </li>
-            <li className="categories__header">our lines:</li>
+            <li className="categories__header"><h3>our lines:</h3></li>
             <li>
               <Link
                 to={`/search/category/all`}
@@ -188,7 +188,7 @@ function App() {
              {userInfo ? (
               <li className='mobile__user'>
                 <Link to="#">
-                  {userInfo.name}:
+                <h3>{userInfo.name}:</h3>
                 </Link>
                 <ul>
                   <li>
@@ -206,7 +206,10 @@ function App() {
                 </ul>
               </li>
             ) : (
-              <Link to="/signin">Sign In</Link>
+            <div>
+              <h3 className='my-account'>My Account:</h3>
+              <Link to="/signin" onClick={signoutHandler}>Sign In</Link>
+              </div>
             )}
             {/* {userInfo && userInfo.isSeller && (
               <div className="dropdown">
@@ -226,7 +229,7 @@ function App() {
             {userInfo && userInfo.isAdmin && (
               <li className='mobile__user'>
                 <Link to="#admin">
-                  Admin:
+                  <h3>Admin:</h3>:
                 </Link>
                 <ul>
                   <li>

@@ -8,10 +8,15 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
+import bodyParser from 'body-parser';
 
 dotenv.config();
 
 const app = express();
+app.use(bodyParser.json());
+
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,11 +26,13 @@ app.use((req, res, next) => {
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   );
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, PATCH, DELETE'
+  );
 
   next();
 });
-
 
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
@@ -38,22 +45,19 @@ app.get('/api/config/paypal', (req, res) => {
 app.get('/api/config/google', (req, res) => {
   res.send(process.env.GOOGLE_API_KEY || '');
 });
-const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-app.use(express.static(path.join(__dirname, '/frontend/build')));
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
-);
-// app.get('/', (req, res) => {
-//   res.send('Server is ready');
-// });
 
-app.use((err, req, res, next) => {
-  console.log('ERROR', err)
-  res.status(500).send({ message: err });
+// app.use(express.static(path.join(__dirname, '/frontend/build')));
+// app.get('*', (req, res) =>
+//   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+// );
+app.get('/', (req, res) => {
+  res.send('Server is ready');
 });
 
-
+app.use((err, req, res, next) => {
+  console.log('ERROR', err);
+  res.status(500).send({ message: err });
+});
 
 const httpServer = http.Server(app);
 const io = new Server(httpServer, { cors: { origin: '*' } });
@@ -130,17 +134,15 @@ io.on('connection', (socket) => {
 const port = process.env.PORT || 5000;
 
 mongoose
-.connect(
+  .connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@freecluster.qqg7h.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(port);
   })
-  .catch(err => {
-
+  .catch((err) => {
     console.log(err);
   });
-
 
 // httpServer.listen(port, () => {
 //   console.log(`Serve at http://localhost:${port}`);

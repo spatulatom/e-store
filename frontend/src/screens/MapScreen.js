@@ -26,7 +26,7 @@ export default function MapScreen(props) {
 
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await Axios('http://localhost:5000/api/config/google');
+      const { data } = await Axios(`${process.env.REACT_APP_BACKEND_URL}/config/google`);
       setGoogleApiKey(data);
       getUserCurrentLocation();
     };

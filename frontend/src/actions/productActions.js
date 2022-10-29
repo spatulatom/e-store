@@ -40,7 +40,7 @@ export const listProducts =
     });
     try {
       const { data } = await Axios.get(
-        `http://localhost:5000/api/products?pageNumber=${pageNumber}&seller=${seller}&name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`
+        `${process.env.REACT_APP_BACKEND_URL}/products?pageNumber=${pageNumber}&seller=${seller}&name=${name}&category=${category}&min=${min}&max=${max}&rating=${rating}&order=${order}`
       );
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
@@ -53,7 +53,7 @@ export const listProductCategories = () => async (dispatch) => {
     type: PRODUCT_CATEGORY_LIST_REQUEST,
   });
   try {
-    const { data } = await Axios.get(`http://localhost:5000/api/products/categories`);
+    const { data } = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/categories`);
     dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_CATEGORY_LIST_FAIL, payload: error.message });
@@ -63,7 +63,7 @@ export const listProductCategories = () => async (dispatch) => {
 export const detailsProduct = (productId) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
   try {
-    const { data } = await Axios.get(`http://localhost:5000/api/products/${productId}`);
+    const { data } = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -82,7 +82,7 @@ export const createProduct = () => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.post(
-      'http://localhost:5000/api/products',
+      `${process.env.REACT_APP_BACKEND_URL}/products`,
       {},
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -106,7 +106,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.put(`http://localhost:5000/api/products/${product._id}`, product, {
+    const { data } = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/products/${product._id}`, product, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data });
@@ -125,7 +125,7 @@ export const deleteProduct = (productId) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    await Axios.delete(`http://localhost:5000/api/products/${productId}`, {
+    await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: PRODUCT_DELETE_SUCCESS });
@@ -145,7 +145,7 @@ export const createReview =
     } = getState();
     try {
       const { data } = await Axios.post(
-        `http://localhost:5000/api/products/${productId}/reviews`,
+        `${process.env.REACT_APP_BACKEND_URL}/products/${productId}/reviews`,
         review,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },

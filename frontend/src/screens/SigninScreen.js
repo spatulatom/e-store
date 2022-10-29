@@ -69,6 +69,10 @@ export default function SigninScreen(props) {
               Create your account
             </Link>
           </div>
+          <div className='magda'>
+          Magdzia, zeby zobaczyc wiecej opcji mozna sie zalogowac jako administrator: admin@gmail.com, haslo: admin1234.
+          albo jak nie masz czasu po prostu jako klient 
+          </div>
         </div>
       </form>
     </div>
