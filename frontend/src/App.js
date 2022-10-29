@@ -42,7 +42,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
- 
+
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
     loading: loadingCategories,
@@ -71,7 +71,7 @@ function App() {
           <div>
             <SearchBox />
           </div>
-          <div className='menu'>
+          <div className="menu">
             <Link to="/cart">
               <i class="fa-solid fa-cart-shopping">
                 {cartItems.length > 0 && (
@@ -154,18 +154,24 @@ function App() {
                 <i class="fa-solid fa-xmark"></i>
               </button>
               <span>
-              <Link className="aside__brand" to="/" onClick={() => setSidebarIsOpen(false)}>
-              e-fashion
-              </Link>
+                <Link
+                  className="aside__brand"
+                  to="/"
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  e-fashion
+                </Link>
               </span>
             </li>
-            <li className="categories__header"><h3>our lines:</h3></li>
+            <li className="categories__header">
+              <h3>our lines:</h3>
+            </li>
             <li>
               <Link
                 to={`/search/category/all`}
                 onClick={() => setSidebarIsOpen(false)}
               >
-                 All
+                All
               </Link>
             </li>
             {loadingCategories ? (
@@ -173,7 +179,6 @@ function App() {
             ) : errorCategories ? (
               <MessageBox variant="danger">{errorCategories}</MessageBox>
             ) : (
-              
               categories.map((c) => (
                 <li key={c}>
                   <Link
@@ -185,18 +190,24 @@ function App() {
                 </li>
               ))
             )}
-             {userInfo ? (
-              <li className='mobile__user'>
+            {userInfo ? (
+              <li className="mobile__user">
                 <Link to="#">
-                <h3>{userInfo.name}:</h3>
+                  <h3>{userInfo.name}:</h3>
                 </Link>
                 <ul>
                   <li>
-                    <Link to="/profile" onClick={() => setSidebarIsOpen(false)}>User Profile</Link>
+                    <Link to="/profile" onClick={() => setSidebarIsOpen(false)}>
+                      User Profile
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/orderhistory" 
-                    onClick={() => setSidebarIsOpen(false)}>Order History</Link>
+                    <Link
+                      to="/orderhistory"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      Order History
+                    </Link>
                   </li>
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
@@ -206,9 +217,11 @@ function App() {
                 </ul>
               </li>
             ) : (
-            <div>
-              <h3 className='my-account'>My Account:</h3>
-              <Link to="/signin" onClick={signoutHandler}>Sign In</Link>
+              <div>
+                <h3 className="my-account">My Account:</h3>
+                <Link to="/signin" onClick={signoutHandler}>
+                  Sign In
+                </Link>
               </div>
             )}
             {/* {userInfo && userInfo.isSeller && (
@@ -227,25 +240,47 @@ function App() {
               </div>
             )} */}
             {userInfo && userInfo.isAdmin && (
-              <li className='mobile__user'>
+              <li className="mobile__user">
                 <Link to="#admin">
                   <h3>Admin:</h3>:
                 </Link>
                 <ul>
                   <li>
-                    <Link to="/dashboard" onClick={() => setSidebarIsOpen(false)}>Dashboard</Link>
+                    <Link
+                      to="/dashboard"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/productlist" onClick={() => setSidebarIsOpen(false)}>Products</Link>
+                    <Link
+                      to="/productlist"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      Products
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/orderlist" onClick={() => setSidebarIsOpen(false)}>Orders</Link>
+                    <Link
+                      to="/orderlist"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      Orders
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/userlist" onClick={() => setSidebarIsOpen(false)}>Users</Link>
+                    <Link
+                      to="/userlist"
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      Users
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/support" onClick={() => setSidebarIsOpen(false)}>Support</Link>
+                    <Link to="/support" onClick={() => setSidebarIsOpen(false)}>
+                      Support
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -264,7 +299,7 @@ function App() {
             ></Route>
             <Route
               path="/product/:id/edit"
-              element={<ProductEditScreen/>}
+              element={<ProductEditScreen />}
               exact
             ></Route>
             <Route path="/signin" element={<SigninScreen />}></Route>
@@ -395,7 +430,7 @@ function App() {
         </main>
         <footer className="row center">
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div className='copyright'>e-fashion 2022</div>{' '}
+          <div className="copyright">e-fashion 2022</div>{' '}
         </footer>
       </div>
     </BrowserRouter>

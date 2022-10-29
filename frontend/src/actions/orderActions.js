@@ -156,7 +156,7 @@ export const deliverOrder = (orderId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = Axios.put(
-      `${process.env.REACT_APP_BACKEND_URL}/${orderId}/deliver`,
+      `${process.env.REACT_APP_BACKEND_URL}/orders/${orderId}/deliver`,
       {},
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },

@@ -37,7 +37,9 @@ export default function OrderScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     const addPayPalScript = async () => {
-      const { data } = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/config/paypal`);
+      const { data } = await Axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/config/paypal`
+      );
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
@@ -79,7 +81,7 @@ export default function OrderScreen(props) {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div className='allcomponents'>
+    <div className="allcomponents">
       <h1>Order {order._id}</h1>
       <div className="row top">
         <div className="col-2">
@@ -186,6 +188,7 @@ export default function OrderScreen(props) {
               {!order.isPaid && (
                 <li>
                   {!sdkReady ? (
+                    // if sdkReady false it means we are still loading paypal
                     <LoadingBox></LoadingBox>
                   ) : (
                     <>
@@ -218,6 +221,11 @@ export default function OrderScreen(props) {
                 </li>
               )}
             </ul>
+            <h3 className="paypal">
+              (Log in to PayPal pop up window with this credentials - it is an
+              account for testing: email: sandbox.tom@example.com, password:
+              sandbox1234)
+            </h3>
           </div>
         </div>
       </div>

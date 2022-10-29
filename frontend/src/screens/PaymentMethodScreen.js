@@ -19,7 +19,7 @@ export default function PaymentMethodScreen(props) {
     navigate('/placeorder');
   };
   return (
-    <div className='allcomponents'>
+    <div className="allcomponents">
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
@@ -40,7 +40,7 @@ export default function PaymentMethodScreen(props) {
           </div>
         </div>
         <div>
-          <div>
+          {/* <div>
             <input
               type="radio"
               id="stripe"
@@ -50,7 +50,7 @@ export default function PaymentMethodScreen(props) {
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></input>
             <label htmlFor="stripe">Stripe</label>
-          </div>
+          </div> */}
         </div>
         <div>
           <label />

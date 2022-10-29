@@ -47,7 +47,11 @@ export default function SearchScreen(props) {
     const filterPage = filter.page || pageNumber;
     const filterCategory = filter.category || category;
     const filterName = filter.name || name;
-    const filterRating = filter.rating? filter.rating : filter.rating === 0 ? 0 : rating;
+    const filterRating = filter.rating
+      ? filter.rating
+      : filter.rating === 0
+      ? 0
+      : rating;
     const sortOrder = filter.order || order;
     const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
     const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
@@ -55,14 +59,17 @@ export default function SearchScreen(props) {
   };
 
   return (
-    <div className='allcomponents'>
-      <div className="row">
+    <div className="allcomponents">
+      <div className="row search-results">
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div>{products.length} Results on page nr {page} (all pages: {pages})</div>
+
+          <div>
+          page numer {page}, filters results: <span className="results">{products.length} </span><br/> (Number of pages: {pages})
+        </div>
         )}
         <div>
           Sort by{' '}
@@ -82,6 +89,7 @@ export default function SearchScreen(props) {
       <div className="row top">
         <div className="col-1">
           <h2>Filters</h2>
+         
           <h3>Department:</h3>
           <div>
             {loadingCategories ? (
@@ -132,13 +140,13 @@ export default function SearchScreen(props) {
             <h3>Avg. Customer Review:</h3>
             <ul>
               <li>
-              <Link
-                    to={getFilterUrl({ rating:0})}
-                    // === dosent make the class active here
-                    className={0 == rating? 'active' : ''}
-                  >
-                Any
-                  </Link>
+                <Link
+                  to={getFilterUrl({ rating: 0 })}
+                  // === dosent make the class active here
+                  className={0 == rating ? 'active' : ''}
+                >
+                  Any
+                </Link>
               </li>
               {ratings.map((r) => (
                 <li key={r.name}>

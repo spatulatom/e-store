@@ -290,6 +290,10 @@ button.close-sidebar i {
   font-style: italic;
   font-weight: bold;
 }
+.my-account {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
 
 /* Image */
 img {
@@ -487,6 +491,10 @@ img.large {
   margin-left: 0.5rem;
   background-color: #dee1e4;
 }
+.search-results .results{
+  color: red;
+}
+
 
 /* Map */
 .full-container {
@@ -670,11 +678,12 @@ img.large {
     height: 70vh;
     overflow: hidden;
   }
-  .my-account {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+  .search-results div{
+    margin-bottom: .5rem;
   }
+ 
 }
-.magda {
+.magda, .paypal {
   text-transform: lowercase;
+  color: red;
 }
