@@ -40,7 +40,8 @@
 1. This app is a commerce online store, it provides:
 * user authentication interface,
 * many different filters for products search,
-* search bar,* rating and customers reviews,
+* search bar,  ratings and customers reviews,
+* ratings and customers reviews,
 * sandbox PayPal payment,
 * tolls for managing cusomers accounts and customers orders,
 * adding new products with ease,
@@ -58,14 +59,24 @@
 
 3. Purchase process:
 
+* customer details
+
 ![Product Name Screen Shot](images/e-fashion6.png)
 
+* chossing payment method
 
 ![Product Name Screen Shot](images/e-fashion7.png)
 
+* Paypal sandbox payment - to test the payment log in to PayPal pop up window with these credentials:
+email: sandbox.tom@example.com, password: sandbox1234
+
 ![Product Name Screen Shot](images/e-fashion8.png)
 
+* verification of an complete payment
+
 ![Product Name Screen Shot](images/e-fashion9.png)
+
+* verification of  a succesfull delivery
 
 ![Product Name Screen Shot](images/e-fashion10.png)
 
@@ -132,6 +143,10 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+### Future development
+* chat box for customers support with socket.io
+* function of choosing the address on the map (insted of typing it) in the checkout process with the
+usage of Google Maps Platform APIs
 
 
 
