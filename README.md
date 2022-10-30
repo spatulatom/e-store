@@ -40,6 +40,7 @@
 1. This app is a commerce online store, it provides:
 * user authentication interface,
 * many different filters for products search,
+* pagination,
 * search bar,  ratings and customers reviews,
 * ratings and customers reviews,
 * sandbox PayPal payment,
@@ -55,9 +56,12 @@
 
 ![Product Name Screen Shot](images/e-fashion5.png)
 
+3. Example of a filtering products. Filters used (chosen filters change font-color to red ): department - shoes, price- 10€-100€, rating - one star. The result is 2 products:
+
+![Product Name Screen Shot](images/e-fashion2.png)
 
 
-3. Purchase process:
+4. Purchase process:
 
 * customer details
 
@@ -85,7 +89,7 @@ email: sandbox.tom@example.com, password: sandbox1234
 
 
 
-4. Menu 'TOOLS' 
+5. Menu 'TOOLS' 
 
 ![Product Name Screen Shot](images/e-fashion11.png)
 
