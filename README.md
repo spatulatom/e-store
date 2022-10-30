@@ -37,35 +37,69 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-1. This app is a social media platform where users can:
-* log in/create an account,
-* upload photos/create posts (about upcoming social events),
-* add likes,
-* add comments,
-* tag their event's location on the Google map ,
-* change their passwords.
+1. This app is a commerce online store, it provides:
+* user authentication interface,
+* many different filters for products search,
+* search bar,* rating and customers reviews,
+* sandbox PayPal payment,
+* tolls for managing cusomers accounts and customers orders,
+* adding new products with ease,
+* dasboard for checking the store general statistics.
+
 
 ![Product Name Screen Shot](images/e-fashion3.png)
 
 
-2. There are currently a few dummy users accounts created and all of them users have already posted some events as seen below:
+2. Example of a single product's page:
 
-![Product Name Screen Shot](imgs/eb5.png)
+![Product Name Screen Shot](images/e-fashion5.png)
 
 
 
-3. Below we have an example of an event created by User1
-* titled 'Lorem Ipsum'
-* with the date and time of the creation
-* it received 3 likes by Guest, User1 and User3
-* by using the three buttons the event can be seen on Google Maps, 
-Updated or Deleted
-* there were two comments made by Guest and User3
+3. Purchase process:
 
-![Product Name Screen Shot](imgs/eb6.png)
+![Product Name Screen Shot](images/e-fashion6.png)
+
+
+![Product Name Screen Shot](images/e-fashion7.png)
+
+![Product Name Screen Shot](images/e-fashion8.png)
+
+![Product Name Screen Shot](images/e-fashion9.png)
+
+![Product Name Screen Shot](images/e-fashion10.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+4. Menu 'TOOLS' 
+
+![Product Name Screen Shot](images/e-fashion11.png)
+
+* DASBOARD
+
+![Product Name Screen Shot](images/e-fashion12.png)
+
+* PRODUCTS
+
+![Product Name Screen Shot](images/e-fashion13.png)
+
+* ORDERS
+
+![Product Name Screen Shot](images/e-fashion14.png)
+
+* USERS
+
+![Product Name Screen Shot](images/e-fashion15.png)
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 
 
 
@@ -73,13 +107,12 @@ Updated or Deleted
 
 * HTML, CSS,
 * [![React][React.js]][React-url],
+* Redux
 * Node.js, Express.js, Mongoose, 
 * MongoBD for a database,
 * Firebase for deploying the frontend,
 * Heroku for deploying the backend,
-* Amazon Web Services API for stroing photos,
-* Google Maps Platform API for events locations,
-* SendGrid API for password change,
+* Amazon Web Services API for storingg photos,
 * Multer middleware library for uploading photos,
 * bcrypt library for hashing passwords,
 * jsonwebtoken for creating login token,
@@ -96,12 +129,6 @@ Updated or Deleted
 
 
 
-Heavy usage of React Hooks like useReducer for managing complex state and useContext (as a part of the Context API that is being used for a "global" state managment) also useEffect, useRef, useCallback and useState. There are also custom hooks built and that is form-hook.js for managing form data, http-hook.js for all fetching requests and auth-hook.js for managing back end login token through the rerender cycles.
-All sorts of errors that are being handled on the backend  (like an incorrect password) are sent to the frontend and are displayed in a modal window on UI for better UX.
-As for the CSS styling, Block/Element/Modifier convention is being followed.
-
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -111,10 +138,7 @@ As for the CSS styling, Block/Element/Modifier convention is being followed.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-
-* this project was completed at the end of the Udemy course <a href="https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide/learn/lecture/16833284?start=15#overview">The MERN Guide</a>
-
-* all users' accounts and all events have been created with the usage of free-to-use photos from www.pexels.com
+* all photos used in the app are free-to-use photos from www.pexels.com or photos from zara website https://www.zara.com
 
 
 
