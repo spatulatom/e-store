@@ -74,15 +74,17 @@ export const payOrder = (order, paymentResult) => async (
   dispatch,
   getState
 ) => {
-  dispatch({ type: ORDER_PAY_REQUEST, payload: { order, paymentResult } });
+  dispatch({ type: ORDER_PAY_REQUEST });
   const {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = Axios.put(`${process.env.REACT_APP_BACKEND_URL}/orders/${order._id}/pay`, paymentResult, {
+     Axios.put(`${process.env.REACT_APP_BACKEND_URL}/orders/${order._id}/pay`, paymentResult, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
-    dispatch({ type: ORDER_PAY_SUCCESS, payload: data });
+    dispatch({ type: ORDER_PAY_SUCCESS });
+    // dispatch({ type: ORDER_CREATE_SUCCESS, payload: data });
+   
   } catch (error) {
     const message =
       error.response && error.response.data.message

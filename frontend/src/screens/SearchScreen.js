@@ -15,7 +15,7 @@ export default function SearchScreen(props) {
     category = 'all',
     min = 0,
     max = 0,
-    rating = 0,
+    rating = -1,
     order = 'newest',
     pageNumber = 1,
   } = useParams();
@@ -49,8 +49,8 @@ export default function SearchScreen(props) {
     const filterName = filter.name || name;
     const filterRating = filter.rating
       ? filter.rating
-      : filter.rating === 0
-      ? 0
+      : filter.rating === -1
+      ? -1
       : rating;
     const sortOrder = filter.order || order;
     const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
@@ -137,13 +137,13 @@ export default function SearchScreen(props) {
             </ul>
           </div>
           <div>
-            <h3>Avg. Customer Review:</h3>
+            <h3>Avg. Customer Rating:</h3>
             <ul>
               <li>
                 <Link
-                  to={getFilterUrl({ rating: 0 })}
+                  to={getFilterUrl({ rating: -1 })}
                   // === dosent make the class active here
-                  className={0 == rating ? 'active' : ''}
+                  className={-1 == rating ? 'active' : ''}
                 >
                   Any
                 </Link>

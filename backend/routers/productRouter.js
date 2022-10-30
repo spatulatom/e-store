@@ -21,15 +21,15 @@ productRouter.get(
     const max =
       req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
     const rating =
-      req.query.rating && Number(req.query.rating) !== 0
+      req.query.rating && Number(req.query.rating) !== -1
         ? Number(req.query.rating)
-        : 0;
+        : -1;
 
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
-    const ratingFilter = rating ? { rating: { $gte: rating } } : {};
+    const ratingFilter = rating>-1 ? { rating: { $gte: rating, $lte: rating } } : {rating: { $gte: rating}};
     const sortOrder =
       order === 'lowest'
         ? { price: 1 }

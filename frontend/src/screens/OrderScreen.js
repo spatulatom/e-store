@@ -13,6 +13,7 @@ import {
 } from '../constants/orderConstants';
 
 export default function OrderScreen(props) {
+
   const params = useParams();
   const { id: orderId } = params;
 
@@ -58,6 +59,7 @@ export default function OrderScreen(props) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
       dispatch(detailsOrder(orderId));
+      
     } else {
       if (!order.isPaid) {
         if (!window.paypal) {
@@ -71,6 +73,7 @@ export default function OrderScreen(props) {
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(order, paymentResult));
+     
   };
   const deliverHandler = () => {
     dispatch(deliverOrder(order._id));
@@ -111,7 +114,7 @@ export default function OrderScreen(props) {
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
                 </p>
-                {order.isPaid ? (
+                {order.isPaid? (
                   <MessageBox variant="success">
                     Paid at {order.paidAt}
                   </MessageBox>
