@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import mg from 'mailgun-js';
+// import mg from 'mailgun-js';
 import multer from 'multer';
 import crypto from 'crypto';
 import path from 'path';
@@ -64,8 +64,8 @@ export const isSellerOrAdmin = (req, res, next) => {
 
 export const mailgun = () =>
   mg({
-    apiKey: process.env.MAILGUN_API_KEY,
-    domain: process.env.MAILGUN_DOMIAN,
+    // apiKey: process.env.MAILGUN_API_KEY,
+    // domain: process.env.MAILGUN_DOMIAN,
   });
 
 export const payOrderEmailTemplate = (order) => {
