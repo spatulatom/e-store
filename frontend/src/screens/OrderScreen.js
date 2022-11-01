@@ -13,7 +13,6 @@ import {
 } from '../constants/orderConstants';
 
 export default function OrderScreen(props) {
-
   const params = useParams();
   const { id: orderId } = params;
 
@@ -38,6 +37,7 @@ export default function OrderScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     const addPayPalScript = async () => {
+      console.log('set 0');
       const { data } = await Axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/config/paypal`
       );
@@ -47,6 +47,7 @@ export default function OrderScreen(props) {
       script.async = true;
       script.onload = () => {
         setSdkReady(true);
+        console.log('set 1');
       };
       document.body.appendChild(script);
     };
@@ -59,10 +60,15 @@ export default function OrderScreen(props) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
       dispatch(detailsOrder(orderId));
-      
+      // trying to use order.isPaid here and that causes error type error
+      // why it can not access it here?
+      // even console.log('bla') causes some wierd behaviors of this page.
+      // perhaps it is that after dispatch there shouldnt any code?
+      console.log('set 2,)');
     } else {
       if (!order.isPaid) {
         if (!window.paypal) {
+          console.log('set 1');
           addPayPalScript();
         } else {
           setSdkReady(true);
@@ -73,7 +79,6 @@ export default function OrderScreen(props) {
 
   const successPaymentHandler = (paymentResult) => {
     dispatch(payOrder(order, paymentResult));
-     
   };
   const deliverHandler = () => {
     dispatch(deliverOrder(order._id));
@@ -114,7 +119,7 @@ export default function OrderScreen(props) {
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
                 </p>
-                {order.isPaid? (
+                {order.isPaid ? (
                   <MessageBox variant="success">
                     Paid at {order.paidAt}
                   </MessageBox>
@@ -235,3 +240,8 @@ export default function OrderScreen(props) {
     </div>
   );
 }
+
+// trying to use order.isPaid here and that causes error type error
+// why it can not access it here?
+// even console.log('bla') causes some wierd behaviors of this page.
+// perhaps it is that after dispatch there shouldnt any code?

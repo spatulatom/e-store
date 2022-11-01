@@ -42,11 +42,24 @@ main {
   position: relative;
 }
 /* HomeScreen */
-.home {
+.home{
+  height:100%;
+  display: flex;
+}
+.home__first-half{
+  background-image: url('img/home-screen1.jpg');
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  height: 100%;
+  flex:2;
+
+}
+.home__second-half{
   background-image: url('img/home-screen2.jpg');
   background-size: contain;
   /* background-repeat: no-repeat; */
   height: 100%;
+  flex:1;
 }
 .allcomponents {
   padding: 2rem;
@@ -491,6 +504,9 @@ img.large {
   margin-left: 0.5rem;
   background-color: #dee1e4;
 }
+.search i{
+  color: black;
+}
 .search-results .results{
   color: red;
 }
@@ -640,7 +656,7 @@ img.large {
   font-style: italic;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .dropdown,
   .brand,
   .search {

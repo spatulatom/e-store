@@ -27,6 +27,8 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div className='home'>
+      <div className='home__first-half'></div>
+      <div className='home__second-half'></div>
       {/* <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
