@@ -13,7 +13,7 @@
   <p>
     'e-fashion' is a full stack app - this repository contains its source code.
     <br />
-    <a href=""><strong>View the deployed app »</strong></a>
+    <a href="https://e-fashion-dc7d0.web.app/"><strong>View the deployed app »</strong></a>
     <br />
     <br />
    

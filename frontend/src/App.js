@@ -53,6 +53,7 @@ function App() {
     dispatch(listProductCategories());
   }, [dispatch]);
   return (
+    // BrowserRouter allows using pathname when definng Route, and probably other things
     <BrowserRouter>
       <div className="grid-container">
         <header className="row">
@@ -288,6 +289,7 @@ function App() {
           </ul>
         </aside>
         <main>
+          {/* Routes is used like Switch here */}
           <Routes>
             <Route path="/seller/:id" element={<SellerScreen />}></Route>
             <Route path="/cart" element={<CartScreen />}></Route>
