@@ -126,7 +126,7 @@ email: sandbox.tom@example.com, password: sandbox1234
 * MongoBD for a database,
 * Firebase for deploying the frontend,
 * Heroku for deploying the backend,
-* Amazon Web Services API for storingg photos,
+* Cloudinary API for storingg photos,
 * Multer middleware library for uploading photos,
 * bcrypt library for hashing passwords,
 * jsonwebtoken for creating login token,
