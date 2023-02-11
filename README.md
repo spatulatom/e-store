@@ -10,7 +10,9 @@
 
 
   <p>
-    'e-fashion' is a full stack app - this repository contains its source code.
+    'e-fashion' is a full stack app - this repository contains its frontend source code.
+    <br />
+      <a href="https://github.com/spatulatom/e-store-redux-mern-backend"><strong>View the backend source code »</strong></a>
     <br />
     <a href="https://e-fashion-dc7d0.web.app/"><strong>View the deployed app »</strong></a>
     <br />
