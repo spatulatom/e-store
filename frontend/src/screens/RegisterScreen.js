@@ -34,7 +34,7 @@ export default function RegisterScreen(props) {
     }
   }, [navigate, redirect, userInfo]);
   return (
-    <div className='allcomponents'>
+    <div className="allcomponents">
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Create Account</h1>
@@ -90,8 +90,10 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <div>
-            Already have an account?{' '}
-            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+            <Link to={`/signin?redirect=${redirect}`}>
+              {' '}
+              Already have an account? Sign-In
+            </Link>
           </div>
         </div>
       </form>
