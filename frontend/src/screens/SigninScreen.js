@@ -69,7 +69,9 @@ export default function SigninScreen(props) {
               Create your account
             </Link>
           </div>
-          <div className="magda"></div>
+          <div className="magda">
+            <h2>Create your account or login as a guest with an email: guest@guest.com, a password: guest </h2>
+          </div>
         </div>
       </form>
     </div>
