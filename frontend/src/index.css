@@ -703,3 +703,7 @@ img.large {
   text-transform: lowercase;
   color: red;
 }
+.middle{
+  text-align: center;
+  width: 100%;
+}

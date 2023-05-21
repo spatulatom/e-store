@@ -128,7 +128,7 @@ email: sandbox.tom@example.com, password: sandbox1234
 * MongoBD for a database,
 * Firebase for deploying the frontend,
 * render.com for deploying the backend,
-* Cloudinary API for storing photos,
+* Uploadcare API for storing photos,
 * Multer middleware library for uploading photos,
 * bcrypt library for hashing passwords,
 * jsonwebtoken for creating login token,
