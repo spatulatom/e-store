@@ -133,7 +133,7 @@ email: sandbox.tom@example.com, password: sandbox1234
 * bcrypt library for hashing passwords,
 * jsonwebtoken for creating login token,
 * Chrome Developer Tools for testing screen sizes and using Lighthouse,
-* Chrome, Firefox, Brave Browser, Edge and Opera for browser testing the responsiveness,
+* Chrome, Firefox, Edge and Opera for browser testing the responsiveness,
 * https://ui.dev/amiresponsive for testing and to make responsive image,
 * https://favicon.io/favicon-generator/ to create a favicon,
 * https://fontawesome.com/ for icons,
